@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.idiazt.springaopaspectjannotationsfullexample.aspects.annotations.LogObject;
+import com.idiazt.springaopaspectjannotationsfullexample.aspects.annotations.LogObject.LogObjectLevel;
 import com.idiazt.springaopaspectjannotationsfullexample.util.ReflectionUtil;
 
 @Aspect
@@ -48,7 +49,7 @@ public class RetrieveObjectsAspect {
 			Annotation annotation = ReflectionUtil
 					.getAnnotationFromJoinpointMethod(joinpoint,
 							LogObject.class);
-			if (((LogObject) annotation).orden() > 1)
+			if (((LogObject) annotation).nivel().equals(LogObjectLevel.DEBUG))
 				logger.info(result.toString());
 			return result;
 		} catch (Throwable e) {

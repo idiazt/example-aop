@@ -22,6 +22,7 @@ public class TestAOPWithAnnotationsFullConfiguration {
     @Test
     public void testProductService() {
         Product product = productService.findById(1L);
+        productService.list();
         assertThat(product.getId(), is(1L));
     }
 

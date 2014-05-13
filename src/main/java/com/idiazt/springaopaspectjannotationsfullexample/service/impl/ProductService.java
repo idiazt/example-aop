@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.stereotype.Service;
 
 import com.idiazt.springaopaspectjannotationsfullexample.aspects.annotations.LogObject;
+import com.idiazt.springaopaspectjannotationsfullexample.aspects.annotations.LogObject.LogObjectLevel;
 import com.idiazt.springaopaspectjannotationsfullexample.dao.ProductDAO;
 import com.idiazt.springaopaspectjannotationsfullexample.entities.Product;
 import com.idiazt.springaopaspectjannotationsfullexample.service.IService;
@@ -18,12 +19,13 @@ public class ProductService implements IService<Product> {
 	}
 
 	@Override
+	@LogObject(nivel = LogObjectLevel.DEBUG)
 	public Collection<Product> list() {
 		return ProductDAO.getInstance().list();
 	}
 
 	@Override
-	@LogObject(orden = 2)
+	@LogObject(nivel = LogObjectLevel.DEBUG)
 	public Product findById(Long id) {
 		return ProductDAO.getInstance().findById(id);
 	}

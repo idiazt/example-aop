@@ -9,8 +9,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LogObject {
 	
+	public enum  LogObjectLevel { DEBUG, INFO, WARN, ERROR };
+	
 	String value() default "";
 	
-	int orden() default -1;
+	LogObjectLevel nivel() default LogObjectLevel.DEBUG;
     
 }
